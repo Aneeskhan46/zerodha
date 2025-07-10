@@ -212,6 +212,12 @@ main().then(()=>{
 // });
 
 
+app.get("/",(req,res)=>{
+    res.send("anees")
+})
+
+
+
 //reading the data by sending to the route
 app.get("/allHoldings", async (req, res) => {
   let allHoldings = await Holding.find({});
