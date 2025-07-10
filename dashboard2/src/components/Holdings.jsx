@@ -1,4 +1,8 @@
 import React from "react";
+if(process.env.NODE_ENV!="production"){
+    require('dotenv').config()
+}
+
 
 import  { useState, useEffect } from "react";
 import axios from "axios";
@@ -11,7 +15,7 @@ const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/allHoldings").then((res) => {
+    axios.get(`${REACT_APP_BAKCKEND_URL}/allHoldings`).then((res) => {
       // console.log(res.data);
       setAllHoldings(res.data);
     });

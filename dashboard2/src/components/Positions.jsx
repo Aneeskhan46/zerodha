@@ -1,4 +1,8 @@
 import React from "react";
+if(process.env.NODE_ENV!="production"){
+    require('dotenv').config()
+}
+
 
 // import { positions } from "../data/data";
 
@@ -10,7 +14,7 @@ const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
 useEffect(() => {
-    axios.get("http://localhost:8080/allPositions").then((res) => {
+    axios.get(`${REACT_APP_BAKCKEND_URL}/allPositions`).then((res) => {
       // console.log(res.data);
       setAllPositions(res.data);
     });
