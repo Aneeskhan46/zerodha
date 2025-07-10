@@ -1,7 +1,5 @@
 import React from "react";
-if(process.env.NODE_ENV!="production"){
-    require('dotenv').config()
-}
+
 
 
 import  { useState, useEffect } from "react";
@@ -16,7 +14,9 @@ const Holdings = () => {
 
   useEffect(() => {
     //  axios.get("http://localhost:8080/allHoldings`).then((res) => {
-    axios.get(`${REACT_APP_BAKCKEND_URL}/allHoldings`).then((res) => {
+    // axios.get(`${REACT_APP_BAKCKEND_URL}/allHoldings`)
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/allHoldings`).then((res) => {
+
       // console.log(res.data);
       setAllHoldings(res.data);
     });
